@@ -3,6 +3,11 @@ This is the official implementation of the CVPR24' paper "Mind The Edge: Refinin
 Estimation" by Lior Talker, Aviad Cohen, Erez Yosef, Alexandra Dana and Michael Dinerstein (Samsung Israel Research Center - SIRC).
 <h3 align="center"><a href="https://arxiv.org/pdf/2212.05315.pdf">Paper (ArXiv)</a> | Paper (CVPR24') | Supp (CVPR24') | Poster (CVPR24')</h3>
 
+
+<br />
+
+> **Abstract:** *Monocular Depth Estimation (MDE) is a fundamental problem in computer vision with numerous applications. Recently, LIDAR-supervised methods have achieved remarkable per-pixel depth accuracy in outdoor scenes. However, significant errors are typically found in the proximity of depth discontinuities, i.e., depth edges, which often hinder the performance of depth-dependent applications that are sensitive to such inaccuracies, e.g., novel view synthesis and augmented reality. Since direct supervision for the location of depth edges is typically unavailable in sparse LIDAR-based scenes, encouraging the MDE model to produce correct depth edges is not straightforward. To the best of our knowledge this paper is the first attempt to address the depth edges issue for LIDAR-supervised scenes. In this work we propose to learn to detect the location of depth edges from densely-supervised synthetic data, and use it to generate supervision for the depth edges in the MDE training. %Despite the ’domain gap’ between synthetic and real data, we show that depth edges that are estimated directly are significantly more accurate than the ones that emerge indirectly from the MDE training. To quantitatively evaluate our approach, and due to the lack of depth edges ground truth in LIDAR-based scenes, we manually annotated subsets of the KITTI and the DDAD datasets with depth edges ground truth. We demonstrate significant gains in the accuracy of the depth edges with comparable per-pixel depth accuracy on several challenging datasets.* 
+
 ## Datasets
 
 The KITTI Depth Edges (KITTI-DE) and DDAD Depth Edges (DDAD-DE) validation datasets from the paper are provided as binary edge images in data/kitti_de/gt and data/ddad_de/gt.
@@ -39,6 +44,16 @@ python eval_depth_edges.py
 0.37
 ```
 - *prec_recall_eval_range_min* and *prec_recall_eval_range_max* are the (partial) range in which the edge AUC metric is computed (as in Tab.2 in the paper).
+- 
+## Citation
+If you find this work relevant, please consider citing:
+
+    @inproceedings{talker2022mind,
+      title={Mind The Edge: Refining Depth Edges in Sparsely-Supervised Monocular Depth Estimation},
+      author={Talker, Lior and Cohen, Aviad and Yosef, Erez and Dana, Alexandra and Dinerstein, Michael},
+      booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition},
+      year={2024}
+    }
 
 ## Acknowledgements
 <a href="https://github.com/Britefury/py-bsds500">py-bsds500</a>
