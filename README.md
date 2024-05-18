@@ -1,7 +1,7 @@
 # Mind The Edge: Refining Depth Edges in Sparsely-Supervised Monocular Depth Estimation
 This is the official implementation of the CVPR24' paper "Mind The Edge: Refining Depth Edges in Sparsely-Supervised Monocular Depth
 Estimation" by Lior Talker, Aviad Cohen, Erez Yosef, Alexandra Dana and Michael Dinerstein (Samsung Israel Research Center - SIRC).
-<h3 align="center"><a href="https://arxiv.org/pdf/2212.05315.pdf">Paper (ArXiv)</a> | Paper (CVPR24') | Supp (CVPR24') | Poster (CVPR24')</h3>
+<h3 align="center"><a href="https://arxiv.org/pdf/2212.05315.pdf">Paper (ArXiv)</a> | Paper (CVPR24') | Supp (CVPR24') | <a href="https://cvpr.thecvf.com/media/PosterPDFs/CVPR%202024/29549.png?t=1715948618.3559048"> Poster (CVPR24')</a> | <a href="https://www.youtube.com/watch?v=88X5mnp3AMo&t=242s">Video (CVPR24')</a></h3>
 
 
 <br />
