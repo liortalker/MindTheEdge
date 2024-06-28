@@ -1,12 +1,14 @@
 # Mind The Edge: Refining Depth Edges in Sparsely-Supervised Monocular Depth Estimation
 This is the official implementation of the CVPR24' paper "Mind The Edge: Refining Depth Edges in Sparsely-Supervised Monocular Depth
 Estimation" by Lior Talker, Aviad Cohen, Erez Yosef, Alexandra Dana and Michael Dinerstein (Samsung Israel Research Center - SIRC).
-<h3 align="center"><a href="https://arxiv.org/pdf/2212.05315.pdf">Paper (ArXiv)</a> | Paper (CVPR24') | Supp (CVPR24') | <a href="https://cvpr.thecvf.com/media/PosterPDFs/CVPR%202024/29549.png?t=1715948618.3559048"> Poster (CVPR24')</a> | <a href="https://www.youtube.com/watch?v=88X5mnp3AMo&t=242s">Video (CVPR24')</a></h3>
+<h3 align="center"><a href="https://arxiv.org/pdf/2212.05315.pdf">Paper (ArXiv)</a> | <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Talker_Mind_The_Edge_Refining_Depth_Edges_in_Sparsely-Supervised_Monocular_Depth_CVPR_2024_paper.pdf"> Paper (CVPR24') | <a href="https://openaccess.thecvf.com/content/CVPR2024/supplemental/Talker_Mind_The_Edge_CVPR_2024_supplemental.pdf"> Supp (CVPR24') | <a href="https://cvpr.thecvf.com/media/PosterPDFs/CVPR%202024/29549.png?t=1715948618.3559048"> Poster (CVPR24') | <a href="https://www.youtube.com/watch?v=88X5mnp3AMo&t=242s">Video (CVPR24')</a></h3>
 
 
 <br />
 
 > **Abstract:** *Monocular Depth Estimation (MDE) is a fundamental problem in computer vision with numerous applications. Recently, LIDAR-supervised methods have achieved remarkable per-pixel depth accuracy in outdoor scenes. However, significant errors are typically found in the proximity of depth discontinuities, i.e., depth edges, which often hinder the performance of depth-dependent applications that are sensitive to such inaccuracies, e.g., novel view synthesis and augmented reality. Since direct supervision for the location of depth edges is typically unavailable in sparse LIDAR-based scenes, encouraging the MDE model to produce correct depth edges is not straightforward. To the best of our knowledge this paper is the first attempt to address the depth edges issue for LIDAR-supervised scenes. In this work we propose to learn to detect the location of depth edges from densely-supervised synthetic data, and use it to generate supervision for the depth edges in the MDE training. %Despite the ’domain gap’ between synthetic and real data, we show that depth edges that are estimated directly are significantly more accurate than the ones that emerge indirectly from the MDE training. To quantitatively evaluate our approach, and due to the lack of depth edges ground truth in LIDAR-based scenes, we manually annotated subsets of the KITTI and the DDAD datasets with depth edges ground truth. We demonstrate significant gains in the accuracy of the depth edges with comparable per-pixel depth accuracy on several challenging datasets.* 
+
+## ** Code and weights of our method will be released soon! **
 
 ## Datasets
 
