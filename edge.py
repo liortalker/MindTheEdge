@@ -1,3 +1,5 @@
+# CC BY-NC-SA 4.0 License
+# Copyright 2024 Samsung Israel R&D Center (SIRC). All rights reserved.
 
 import cv2
 import numpy as np
@@ -112,31 +114,3 @@ def read_png_depth(file):
     depth[depth_png == 0] = -1.
     # return np.expand_dims(depth, axis=2)
     return depth
-
-# Load input image
-# def load_edge_images(edge_list, index):
-#     if edge_list is not None:
-#
-#         edge_gt_list = []
-#
-#         for i in range(0, 6):
-#             edge_path = edge_list[6 * index + i]
-#
-#             if str.endswith(edge_path, '.png'):
-#                 # Expects seg GT in colors of Cityscapes and KITTI
-#                 edge_gt = pil.open(edge_path).convert('RGB')  # .convert('L')
-#
-#                 # Resize GT to a single size to handle different GTif self.clamp_depth_gt: size, tensor size is the same for entire batch
-#                 # edge_gt = edge_gt.resize([int(self.full_res_shape[0]/(2**i)), int(self.full_res_shape[1]/(2**i))], pil.NEAREST)
-#
-#                 # depth_gt = np.array(depth_gt).astype(np.float32) / 256
-#             else:
-#                 # print(seg_path)
-#                 raise ValueError
-#
-#             edge_gt_list += [
-#                 torch.from_numpy(np.array(edge_gt).astype(np.float32)[:, :, 0] / 255).unsqueeze(0).unsqueeze(0).cuda()]
-#     else:
-#         edge_gt_list = torch.from_numpy(np.array([0]))
-#
-#     return edge_gt_list

@@ -1,0 +1,65 @@
+model:
+    name: 'EdgeEstimationLIDARModel'
+    depth_net:
+        name: 'PackNetSAN01'
+        version: '1A'
+    pose_net:
+        name: 'PoseNet'
+        version: ''
+    params:
+        crop: 'garg'
+        min_depth: 0.0
+        max_depth: 80.0
+    loss:
+        upsample_depth_maps: False
+datasets:
+    augmentation:
+#        image_shape: (960, 1920)
+        image_shape: (384, 1280)
+    test:
+        dataset: [ 'GTA' ]
+        path: [ '' ]
+        split: ['data/kitti_eigen_zhou_gt_lidar_with_edges_from_edge_estimation_split_384x1280.txt']
+        input_depth_type: [ 'velodyne' ]
+        depth_type: [ 'groundtruth' ]
+        is_infer_rgb: False
+        is_infer_lidar: True
+        nms: True
+        hysteresis: True
+        normals: True
+        num_workers: 4
+save:
+    folder: 'results/DEE_estimated_depth_edges_kitti_train'
+    depth:
+        rgb: True
+        npz: False
+        multiscale: True
+checkpoint:
+
+    filepath: 'checkpoints/DEE_trained_on_gta.ckpt'
+
+analysis:
+
+  just_evaluate: False
+  run_light_edge_metrics: False
+  run_heavy_edge_metrics: False # BSDS
+
+  gt_image_list: 'data/kitti_115_annotated_depth.txt'
+  edge_image_list: 'data/kitti_115_annotated_edges.txt'
+
+  type: "dense"
+  shape: false
+
+  intrinsics: false
+  distortion_params: False
+
+
+  start_frm_idx: 0
+  end_frm_idx: -1
+  min_depth: 0.01
+  max_depth: 80.
+
+  gt_crop: [44, 1197, 153, 371]
+
+  mask_epipole: false
+  epipole_mask_radius: -1

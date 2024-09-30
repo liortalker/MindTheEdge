@@ -1,9 +1,15 @@
+# CC BY-NC-SA 4.0 License
+# Copyright 2024 Samsung Israel R&D Center (SIRC). All rights reserved.
+# Adpated from: https://github.com/Britefury/py-bsds500
+
 from collections import namedtuple
 import numpy as np
 from bsds_metric.bsds import thin, correspond_pixels
 import multiprocessing
 import cv2
 import glob
+import pickle
+import pandas as pd
 from edge import edge_from_depth
 import os
 import argparse
@@ -368,7 +374,6 @@ def mean_recall_at_precision_range(arr, small_lim=0.0, large_lim=1.0):
 
     return mean_recall
 
-
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='Generate images from coordinate text files.')
@@ -407,5 +412,5 @@ if __name__ == '__main__':
     # AUC over large intersection range (see results in paper)
     f2 = mean_recall_at_precision_range(precision_recall_vec, small_lim=args.prec_recall_eval_range_min, large_lim=args.prec_recall_eval_range_max)
 
-    print('AUC over all range: ' + str(f1))
-    print('AUC over partial range: ' + str(f2))
+    print('AUC over all range: ' + str(f1) + '\n')
+    print('AUC over partial range: ' + str(f2) + '\n')

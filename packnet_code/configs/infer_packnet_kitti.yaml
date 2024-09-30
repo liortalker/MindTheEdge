@@ -1,0 +1,66 @@
+model:
+    name: 'SemiSupEdgeModel'
+    depth_net:
+        name: 'PackNetSAN01'
+        version: '1A'
+    pose_net:
+        name: 'PoseNet'
+        version: ''
+    params:
+        crop: 'garg'
+        min_depth: 0.0
+        max_depth: 80.0
+datasets:
+    augmentation:
+        image_shape: (384, 1280)
+    test:
+        dataset: [ 'GTA' ]
+        path: [ '' ]
+        split: ['data/kitti_de/kitti_115_split.txt']
+        input_depth_type: ['']
+        depth_type: [ 'groundtruth' ]
+
+save:
+
+    folder: 'results/packnet_kitti_depth_edges'
+
+    depth:
+        rgb: True
+        viz: False
+        npz: True
+        png: True
+checkpoint:
+
+    filepath: 'checkpoints/packnet_kitti_depth_edges.ckpt'
+
+analysis:
+
+  just_evaluate: False
+  run_metrics: True # ARE
+  run_heavy_edge_metrics: True # BSDS
+
+  gt_image_list: 'data/kitti_de/depth/kitti_115_annotated_depth.txt'
+  edge_image_list: 'data/kitti_de/depth_edges/kitti_115_annotated_edges.txt'
+
+  type: "dense"
+  shape: false
+
+  intrinsics: false
+  distortion_params: False
+
+
+  start_frm_idx: 0
+  end_frm_idx: -1
+  min_depth: 0.01
+  max_depth: 80.
+
+  prec_recall_eval_range_min: 0.12
+  prec_recall_eval_range_max: 0.65
+
+  # Crop used by Garg ECCV16 to reproduce Eigen NIPS14 results.
+  # If used on gt_size 370x1224 produces a crop of [-218, -3, 44, 1180]
+  #gt_crop: [0.03594771, 0.96405229, 0.40810811, 0.99189189]
+  gt_crop: [44, 1197, 153, 371]
+  mask_epipole: false
+  epipole_mask_radius: -1
+  median_scaling: "none"
