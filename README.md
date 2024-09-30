@@ -9,23 +9,21 @@ Estimation" by Lior Talker, Aviad Cohen, Erez Yosef, Alexandra Dana and Michael 
 > **Abstract:** *Monocular Depth Estimation (MDE) is a fundamental problem in computer vision with numerous applications. Recently, LIDAR-supervised methods have achieved remarkable per-pixel depth accuracy in outdoor scenes. However, significant errors are typically found in the proximity of depth discontinuities, i.e., depth edges, which often hinder the performance of depth-dependent applications that are sensitive to such inaccuracies, e.g., novel view synthesis and augmented reality. Since direct supervision for the location of depth edges is typically unavailable in sparse LIDAR-based scenes, encouraging the MDE model to produce correct depth edges is not straightforward. To the best of our knowledge this paper is the first attempt to address the depth edges issue for LIDAR-supervised scenes. In this work we propose to learn to detect the location of depth edges from densely-supervised synthetic data, and use it to generate supervision for the depth edges in the MDE training. %Despite the ’domain gap’ between synthetic and real data, we show that depth edges that are estimated directly are significantly more accurate than the ones that emerge indirectly from the MDE training. To quantitatively evaluate our approach, and due to the lack of depth edges ground truth in LIDAR-based scenes, we manually annotated subsets of the KITTI and the DDAD datasets with depth edges ground truth. We demonstrate significant gains in the accuracy of the depth edges with comparable per-pixel depth accuracy on several challenging datasets.* 
 
 ## Inference
-To use Packnet-SAN, trained on KITTI, with our edge loss:
-1. Download the [trained weights](./checkpoints/packnet_kitti_depth_edges.ckpt) (or train your own weights - see Training setion),  and place in ./checkpoints folder.
-2. Download the [rgb](./data/kitti_de/rgb/kitti_115_rgb.tar.gz), [depth](./data/kitti_de/depth/kitti_115_depth.tar.gz) and [depth edges](./data/kitti_de/depth_edges/kitti_115_depth_edges.tar.gz) data for the KITTI_DE dataset, and place in ./data/kitti_de/rgb, ./data/kitti_de/depth and ./data/kitti_de/depth_edges, respectively.
-(To place somewhere else please change the paths in data/kitti_de/depth/kitti_115_annotated_depth.txt, etc)
-3. Run inference: 
+To run Packnet-SAN, trained on KITTI, with our edge loss, on KITTI Depth Edges (KITTI-DE):
+1. Download the [trained weights](https://drive.google.com/file/d/1gSM-sE4-ssW_Syz4fZs81hp89SnFmqFd/view?usp=sharing) (or train your own weights - see Training setion),  and place in ./checkpoints folder.
+2. Run inference: 
 
     ```bash
     python infer_edges.py --config 'packnet_code/configs/infer_packnet_kitti.yaml'
     ```
     (Edit ./packnet_code/configs/infer_packnet_kitti.yaml to change output path, etc)
-4. The results are generated (by default) in ./results
+3. The results are generated (by default) in ./results
 
 ## Training
 To train Packnet-SAN with our edge loss on KITTI:
 1. Download KITTI's RGB and depth images () and place in ./data/kitti/rgb and ./data/kitti/depth, respectively.
 2. Resize the RGB and depth to 384x1280, using e.g., cv2.resize and [`resize_depth_preserve`](http://gitlab-srv/red-team/MindTheEdge/-/blob/main/packnet_code/packnet_sfm/datasets/augmentations.py#L56), respectively.
-3. Download the [DEE network (trained on GTA)](./checkpoints/packnet_kitti_depth_edges.ckpt) for annotating the depth edges of KITTI's training set, and place in ./checkpoints.
+3. Download the [DEE network (trained on GTA)](https://drive.google.com/file/d/17BbJqfKjrYqjWw6SK5nbidGOLemdpYYE/view?usp=sharing) for annotating the depth edges of KITTI's training set, and place in ./checkpoints.
 4. Run depth edge annotation to produce the depth edges and normals:
 
     ```bash
