@@ -26,7 +26,7 @@ To run Packnet-SAN, trained on KITTI, with our edge loss, on KITTI Depth Edges (
 ## Training
 To train Packnet-SAN with our edge loss on KITTI:
 1. Download KITTI's RGB and depth images (from https://www.cvlibs.net/datasets/kitti/eval_depth.php?benchmark=depth_prediction) and place in ./data/kitti/rgb and ./data/kitti/depth, respectively.
-2. Resize the RGB and depth to 384x1280, using e.g., cv2.resize and [`resize_depth_preserve`](http://gitlab-srv/red-team/MindTheEdge/-/blob/main/packnet_code/packnet_sfm/datasets/augmentations.py#L56), respectively.
+2. Resize the RGB and depth to 384x1280, using e.g., cv2.resize and [`resize_depth_preserve`](https://github.com/liortalker/MindTheEdge/blob/main/packnet_code/packnet_sfm/datasets/augmentations.py#L58), respectively.
 3. Download the [DEE network (trained on GTA)](https://drive.google.com/file/d/17BbJqfKjrYqjWw6SK5nbidGOLemdpYYE/view?usp=sharing) for annotating the depth edges of KITTI's training set, and place in ./checkpoints.
 4. Run depth edge annotation to produce the depth edges and normals:
 
