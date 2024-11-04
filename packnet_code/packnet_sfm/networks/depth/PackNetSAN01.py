@@ -264,10 +264,10 @@ class PackNetSAN01(nn.Module):
         if return_encoded_rgb: # For backward compatibility
             output_var.append(encoded_rgb_data)
 
-        if self.is_depth_aux_net:
-            input_depth_aux_tensor = torch.cat((decoder_output[0], skips_x5p[0]), axis=1)
-            depth_aux_output = self.depth_aux_net(input_depth_aux_tensor)
-            output_var.append(depth_aux_output)
+        #if self.is_depth_aux_net:
+        #    input_depth_aux_tensor = torch.cat((decoder_output[0], skips_x5p[0]), axis=1)
+        #    depth_aux_output = self.depth_aux_net(input_depth_aux_tensor)
+        #    output_var.append(depth_aux_output)
 
         return output_var
 
@@ -298,9 +298,9 @@ class PackNetSAN01(nn.Module):
         inv_depths_rgb = return_arr[0]
         skip_feat_rgb = return_arr[1]
         # encoded_rgb_data = return_arr[2]
-        if self.is_depth_aux_net:
-            depth_rgb_aux_output = return_arr[2]
-            output['depth_rgb_aux_output'] = depth_rgb_aux_output
+        #if self.is_depth_aux_net:
+        #    depth_rgb_aux_output = return_arr[2]
+        #    output['depth_rgb_aux_output'] = depth_rgb_aux_output
 
         # if self.in_channels==4:
         #     inv_depths_rgb[0] = (inv_depths_rgb[0] * rgb_edge)
@@ -324,9 +324,9 @@ class PackNetSAN01(nn.Module):
         return_arr = self.run_network(rgb_encoder_input, input_depth)
         inv_depths_rgbd = return_arr[0]
         skip_feat_rgbd = return_arr[1]
-        if self.is_depth_aux_net:
-            depth_rgbd_aux_output = return_arr[2]
-            output['depth_rgbd_aux_output'] = depth_rgbd_aux_output
+        #if self.is_depth_aux_net:
+        #    depth_rgbd_aux_output = return_arr[2]
+        #    output['depth_rgbd_aux_output'] = depth_rgbd_aux_output
 
         # if self.in_channels==4:
         #     inv_depths_rgbd[0] = (inv_depths_rgbd[0] * rgb_edge)

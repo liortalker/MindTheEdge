@@ -19,7 +19,7 @@ datasets:
     test:
         dataset: [ 'GTA' ]
         path: [ '' ]
-        split: ['data/kitti_eigen_zhou_gt_lidar_with_edges_from_edge_estimation_split_384x1280.txt']
+        split: ['data/kitti/kitti_eigen_zhou_split_384x1280.txt']
         input_depth_type: [ 'velodyne' ]
         depth_type: [ 'groundtruth' ]
         is_infer_rgb: False
@@ -44,8 +44,8 @@ analysis:
   run_light_edge_metrics: False
   run_heavy_edge_metrics: False # BSDS
 
-  gt_image_list: 'data/kitti_115_annotated_depth.txt'
-  edge_image_list: 'data/kitti_115_annotated_edges.txt'
+  gt_image_list: 'data/kitti_de/depth/kitti_115_annotated_depth.txt'
+  edge_image_list: 'data/kitti_de/depth_edges/kitti_115_annotated_edges.txt'
 
   type: "dense"
   shape: false

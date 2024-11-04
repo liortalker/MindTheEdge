@@ -39,7 +39,7 @@ datasets:
         batch_size: 3
         dataset: ['GTA']
         path: ['']
-        split: ['data/kitti_eigen_zhou_gt_lidar_with_edges_from_edge_estimation_split_384x1280_all_multiscale_normals_new.txt']
+        split: ['data/kitti/kitti_eigen_zhou_split_384x1280_all_multiscale_normals.txt']
         input_depth_type: ['velodyne']
         depth_type: ['groundtruth']
         repeat: [1]
@@ -48,7 +48,7 @@ datasets:
     validation:
         dataset: [ 'GTA' ]
         path: [ '' ]
-        split: [ 'data/kitti_115_annotated_split_gt_depth_instead_of_lidar.txt' ]
+        split: [ 'data/kitti_de/kitti_115_split.txt' ]
         input_depth_type: [ 'velodyne' ]
         depth_type: [ 'groundtruth' ]
         num_workers: 3
